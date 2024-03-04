@@ -14,7 +14,7 @@ def main():
         df = pd.read_csv(file_path)
 
         # Default columns to display
-        default_columns = ['tile', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
+        default_columns = ['title', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
 
         # Sidebar for selecting columns
         st.sidebar.title("Column Selection")
