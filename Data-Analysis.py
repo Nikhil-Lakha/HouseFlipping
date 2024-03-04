@@ -10,7 +10,7 @@ def main():
 
     with tab1:
         # Load data
-        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/All%20Sold%20Properties.csv"
+        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/Current%20Listed%20Properties.csv"
         df = pd.read_csv(file_path)
 
         # Default columns to display
