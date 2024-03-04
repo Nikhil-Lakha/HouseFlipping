@@ -112,7 +112,7 @@ def main():
             return df
 
         # Define the directory where the CSV files are located
-        directory = 'https://github.com/Nikhil-Lakha/HouseFlipping/tree/master/Sold%20Properties'
+        directory = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties'
 
         # List to store processed DataFrames
         dfs = []
