@@ -111,28 +111,13 @@ def main():
             
             return df
 
-        # Define the directory where the CSV files are located
-        directory = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties'
-
-        # List to store processed DataFrames
-        dfs = []
-
-        # Iterate through files in the directory
-        for file in os.listdir(directory):
-            # Check if the file is a CSV file
-            if file.endswith('.csv'):
-                # Process the CSV file and append the DataFrame to the list
-                file_path = os.path.join(directory, file)
-                df = process_csv(file_path)
-                dfs.append(df)
-
-        # Concatenate all DataFrames into a single DataFrame
-        final_df = pd.concat(dfs, ignore_index=True)
+        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties/All%20Sold%20Properties.csv"
+        final_df = pd.read_csv(file_path)
 
         # Display markdown for the Sold Homes tab
         st.markdown("# List of Sold Homes")
         # Default columns to display
-        default_columns = ['tile', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
+        default_columns = ['title', 'href','property_type', 'Bedrooms', 'Bathrooms', 'Status', 'Floor Area', 'Province', 'City', 'Suburb', 'Area','Listing Number','Sold Date','previously listed price']
 
         # Sidebar for selecting columns
         st.sidebar.title("Column Selection")
