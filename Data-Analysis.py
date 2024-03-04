@@ -10,7 +10,7 @@ def main():
 
     with tab1:
         # Load data
-        file_path = "C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv"
+        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/All%20Sold%20Properties.csv"
         df = pd.read_csv(file_path)
 
         # Default columns to display
@@ -112,7 +112,7 @@ def main():
             return df
 
         # Define the directory where the CSV files are located
-        directory = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties'
+        directory = 'https://github.com/Nikhil-Lakha/HouseFlipping/tree/master/Sold%20Properties'
 
         # List to store processed DataFrames
         dfs = []
@@ -148,7 +148,7 @@ def main():
         
         col1, col2 = st.columns(2)
 
-        file_path = "C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Property Market 30 days.csv"
+        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Property%20Market%2030%20days.csv"
         df = pd.read_csv(file_path)
 
 
