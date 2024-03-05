@@ -5,18 +5,15 @@ import os
 import matplotlib.pyplot as plt
 
 def main():
-    
-    current_directory = os.getcwd()
-    st.write(current_directory)
 
-    tab1, tab2, tab3 = st.tabs(["Listed Homes", "Sold Homes", current_directory])
+    tab1, tab2, tab3 = st.tabs(["Listed Homes", "Sold Homes", "Marketing Research"])
 
     with tab1:
 
         def read_csv_file():
-            # Check if the code is running on GitHub (assuming you can use an environment variable)
-            if os.environ.get('GITHUB_ACTIONS') == 'true':
-                # If running on GitHub, read the CSV file from the GitHub URL
+            current_directory = os.getcwd()
+            if 'houseflipping' in current_directory.lower():
+                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/Current%20Listed%20Properties.csv'
                 df = pd.read_csv(file_url)
             else:
@@ -26,11 +23,7 @@ def main():
 
             return df
 
-        # Usage
         df = read_csv_file()
-                # Load data
-
-    
 
         # Default columns to display
         default_columns = ['tile', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
@@ -52,9 +45,6 @@ def main():
         area_options = ['All']
 
         col1, col2, col3, col4 = st.columns(4)
-        
-
-    
 
         # Sidebar filters
         with col1:
@@ -91,8 +81,6 @@ def main():
         # Display filtered dataframe with selected columns
             st.write(filtered_df[selected_columns])
 
-
-        
         # Create a plotly figure
             fig = px.scatter(
             filtered_df,
@@ -118,10 +106,11 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
 
     with tab2:
+
         def read_csv_file():
-            # Check if the code is running on GitHub (assuming you can use an environment variable)
-            if os.environ.get('GITHUB_ACTIONS') == 'true':
-                # If running on GitHub, read the CSV file from the GitHub URL
+            current_directory = os.getcwd()
+            if 'houseflipping' in current_directory.lower():
+                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties/All%20Sold%20Properties.csv'
                 df = pd.read_csv(file_url)
             else:
@@ -131,9 +120,7 @@ def main():
 
             return df
 
-        # Usage
         final_df = read_csv_file()
-                # Load data
 
         # Display markdown for the Sold Homes tab
         st.markdown("# List of Sold Homes")
@@ -152,12 +139,10 @@ def main():
  
     with tab3:
         
-        col1, col2 = st.columns(2)
-
         def read_csv_file():
-            # Check if the code is running on GitHub (assuming you can use an environment variable)
-            if os.environ.get('GITHUB_ACTIONS') == 'true':
-                # If running on GitHub, read the CSV file from the GitHub URL
+            current_directory = os.getcwd()
+            if 'houseflipping' in current_directory.lower():
+                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Property%20Market%2030%20days.csv'
                 df = pd.read_csv(file_url)
             else:
@@ -166,8 +151,10 @@ def main():
                 df = pd.read_csv(file_path)
 
             return df
-                # Usage
+
         df = read_csv_file()
+
+        col1, col2 = st.columns(2)
 
         with col1:
             st.write(df)
