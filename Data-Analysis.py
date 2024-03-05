@@ -10,9 +10,22 @@ def main():
 
     with tab1:
         # Load data
-        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/Current%20Listed%20Properties.csv"
-        df = pd.read_csv(file_path)
+        def read_csv_file():
+            # Check if the code is running on GitHub (assuming you can use an environment variable)
+            if os.environ.get('GITHUB_ACTIONS') == 'true':
+                # If running on GitHub, read the CSV file from the GitHub URL
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/Current%20Listed%20Properties.csv'
+                df = pd.read_csv(file_url)
+            else:
+                # If running locally, read the CSV file from the local path
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv'
+                df = pd.read_csv(file_path)
 
+            return df
+
+        # Usage
+        df = read_csv_file()
+                # Load data
         # Default columns to display
         default_columns = ['title', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
 
