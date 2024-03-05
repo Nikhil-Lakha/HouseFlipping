@@ -86,9 +86,10 @@ def main():
 
         with col1:
         # Display filtered dataframe with selected columns
+            current_directory = os.getcwd()
+            st.write(current_directory)
             st.write(filtered_df[selected_columns])
-            st.write(os.environ.get('GITHUB_ACTIONS'))
-            
+
 
         
         # Create a plotly figure
