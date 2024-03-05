@@ -5,8 +5,11 @@ import os
 import matplotlib.pyplot as plt
 
 def main():
+    
+    current_directory = os.getcwd()
+    st.write(current_directory)
 
-    tab1, tab2, tab3 = st.tabs(["Listed Homes", "Sold Homes", "Marketing Research"])
+    tab1, tab2, tab3 = st.tabs(["Listed Homes", "Sold Homes", current_directory])
 
     with tab1:
 
@@ -86,8 +89,6 @@ def main():
 
         with col1:
         # Display filtered dataframe with selected columns
-            current_directory = os.getcwd()
-            st.write(current_directory)
             st.write(filtered_df[selected_columns])
 
 
