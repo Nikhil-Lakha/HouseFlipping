@@ -9,7 +9,7 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Listed Homes", "Sold Homes", "Marketing Research"])
 
     with tab1:
-        # Load data
+
         def read_csv_file():
             # Check if the code is running on GitHub (assuming you can use an environment variable)
             if os.environ.get('GITHUB_ACTIONS') == 'true':
@@ -26,8 +26,11 @@ def main():
         # Usage
         df = read_csv_file()
                 # Load data
+
+    
+
         # Default columns to display
-        default_columns = ['title', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
+        default_columns = ['tile', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
 
         # Sidebar for selecting columns
         st.sidebar.title("Column Selection")
@@ -84,6 +87,8 @@ def main():
         with col1:
         # Display filtered dataframe with selected columns
             st.write(filtered_df[selected_columns])
+            st.write(os.environ.get('GITHUB_ACTIONS'))
+            
 
         
         # Create a plotly figure
@@ -111,26 +116,27 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
 
     with tab2:
+        def read_csv_file():
+            # Check if the code is running on GitHub (assuming you can use an environment variable)
+            if os.environ.get('GITHUB_ACTIONS') == 'true':
+                # If running on GitHub, read the CSV file from the GitHub URL
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties/All%20Sold%20Properties.csv'
+                df = pd.read_csv(file_url)
+            else:
+                # If running locally, read the CSV file from the local path
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv'
+                df = pd.read_csv(file_path)
 
-        # Function to process each CSV file
-        def process_csv(file):
-            # Read the CSV file into a DataFrame
-            df = pd.read_csv(file)
-            
-            # Remove duplicates based on "List ID" column, keeping the oldest "Sold Date"
-            df['Sold Date'] = pd.to_datetime(df['Sold Date'])  # Convert 'Sold Date' to datetime
-            df.sort_values(by='Sold Date', inplace=True)  # Sort by 'Sold Date' to get the oldest first
-            df.drop_duplicates(subset='Listing Number', keep='first', inplace=True)
-            
             return df
 
-        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties/All%20Sold%20Properties.csv"
-        final_df = pd.read_csv(file_path)
+        # Usage
+        final_df = read_csv_file()
+                # Load data
 
         # Display markdown for the Sold Homes tab
         st.markdown("# List of Sold Homes")
         # Default columns to display
-        default_columns = ['title', 'href','property_type', 'Bedrooms', 'Bathrooms', 'Status', 'Floor Area', 'Province', 'City', 'Suburb', 'Area','Listing Number','Sold Date','previously listed price']
+        default_columns = ['tile', 'href','property_type', 'Bedrooms', 'Bathrooms', 'price', 'Floor Area', 'Province', 'City', 'Suburb', 'Area', "Price per sqm"]
 
         # Sidebar for selecting columns
         st.sidebar.title("Column Selection")
@@ -146,9 +152,20 @@ def main():
         
         col1, col2 = st.columns(2)
 
-        file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Property%20Market%2030%20days.csv"
-        df = pd.read_csv(file_path)
+        def read_csv_file():
+            # Check if the code is running on GitHub (assuming you can use an environment variable)
+            if os.environ.get('GITHUB_ACTIONS') == 'true':
+                # If running on GitHub, read the CSV file from the GitHub URL
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Property%20Market%2030%20days.csv'
+                df = pd.read_csv(file_url)
+            else:
+                # If running locally, read the CSV file from the local path
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Property Market 30 days.csv'
+                df = pd.read_csv(file_path)
 
+            return df
+                # Usage
+        df = read_csv_file()
 
         with col1:
             st.write(df)
