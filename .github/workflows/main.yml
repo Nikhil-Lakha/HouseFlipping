@@ -2,7 +2,7 @@ name: Daily Automation
 
 on:
   schedule:
-    - cron: '5 11 * * *'  # This runs the workflow daily at 14:40 PM South African time
+    - cron: '20 15 * * *'  # This runs the workflow daily at 14:40 PM South African time
 
 jobs:
   run_scripts:
