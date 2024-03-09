@@ -2,7 +2,7 @@ name: Daily File Deletion
 
 on:
   schedule:
-    - cron: '35 17 * * *'  # This runs the workflow daily at 5:12 PM South African time
+    - cron: '35 17 * * *'  # This runs the workflow daily at 5:10 PM South African time
 
 jobs:
   delete_files:
@@ -17,6 +17,3 @@ jobs:
           rm -f image_links.csv
           rm -f listings.csv
           rm -f listings_scrapy.csv
-        # Notify on completion
-        if: ${{ success() }}
-        run: echo "Deletion of files successful" | mail -s "File Deletion Success" lakhanikhil@gmail.com
