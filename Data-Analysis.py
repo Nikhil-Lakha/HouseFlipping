@@ -420,35 +420,47 @@ def main():
         st.title("Ad Hoc reporting")
         
         # Define function to read CSV and display HTML
-        def display_csv_data(file_path):
-            df = pd.read_csv(file_path)
+        def display_csv_data(df):
             pyg_html = pyg.to_html(df)
             components.html(pyg_html, height=1000, scrolling=True)
-
+        
+        # Function to load CSV data
+        def load_csv_data(file_path):
+            try:
+                df = pd.read_csv(file_path)
+                return df
+            except Exception as e:
+                st.error(f"Error reading CSV file: {e}")
+                return None
+        
+        # Determine CSV file paths based on the current working directory
+        current_directory = os.getcwd()
+        if 'houseflipping' in current_directory.lower():
+            # If running in the 'houseflipping' directory, use GitHub URLs for CSV files
+            sold_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv'
+            listed_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed%20Properties/Current%20Listed%20Properties.csv'
+        else:
+            # If running locally, use local file paths for CSV files
+            sold_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv'
+            listed_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv'
+        
+        # Button for Sold Homes
         if st.button("Sold Homes"):
-            current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
-                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
-                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv'
-                df = pd.read_csv(file_url)
-                display_csv_data(df)
+                df = load_csv_data(sold_properties_url)
             else:
-                # If running locally, read the CSV file from the local path
-                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv'
-                display_csv_data(file_path)
-
+                df = load_csv_data(sold_properties_path)
+            if df is not None:
+                display_csv_data(df)
+        
         # Button for Currently Listed
         if st.button("Currently Listed"):
-            current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
-                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
-                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed%20Properties/Current%20Listed%20Properties.csv'
-                df = pd.read_csv(file_url)
-                display_csv_data(df)
+                df = load_csv_data(listed_properties_url)
             else:
-                # If running locally, read the CSV file from the local path
-                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv'
-                display_csv_data(file_path)
+                df = load_csv_data(listed_properties_path)
+            if df is not None:
+                display_csv_data(df)
 
 
 if __name__ == "__main__":
