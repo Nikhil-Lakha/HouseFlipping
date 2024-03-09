@@ -431,7 +431,7 @@ def main():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv'
                 df = pd.read_csv(file_url)
-                st.dataframe(df)
+                display_csv_data(file_path)
             else:
                 # If running locally, read the CSV file from the local path
                 file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv'
@@ -444,7 +444,7 @@ def main():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed%20Properties/Current%20Listed%20Properties.csv'
                 df = pd.read_csv(file_url)
-                st.dataframe(df)
+                display_csv_data(file_path)
             else:
                 # If running locally, read the CSV file from the local path
                 file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv'
