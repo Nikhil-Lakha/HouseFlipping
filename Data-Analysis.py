@@ -36,7 +36,7 @@ def main():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
-                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Listed%20Properties/Current%20Listed%20Properties.csv'
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed%20Properties/Current%20Listed%20Properties.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
@@ -151,7 +151,7 @@ def main():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
-                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Sold%20Properties/All%20Sold%20Properties.csv'
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
@@ -360,7 +360,7 @@ def main():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
-                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/master/Property%20Market%2030%20days.csv'
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Property%20Market%2030%20days.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
@@ -425,13 +425,30 @@ def main():
             pyg_html = pyg.to_html(df)
             components.html(pyg_html, height=1000, scrolling=True)
 
-        # Button for Sold Homes
         if st.button("Sold Homes"):
-            display_csv_data("C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv")
+            current_directory = os.getcwd()
+            if 'houseflipping' in current_directory.lower():
+                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv'
+                df = pd.read_csv(file_url)
+                st.dataframe(df)
+            else:
+                # If running locally, read the CSV file from the local path
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv'
+                display_csv_data(file_path)
 
         # Button for Currently Listed
         if st.button("Currently Listed"):
-            display_csv_data("C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv")
+            current_directory = os.getcwd()
+            if 'houseflipping' in current_directory.lower():
+                # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
+                file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed%20Properties/Current%20Listed%20Properties.csv'
+                df = pd.read_csv(file_url)
+                st.dataframe(df)
+            else:
+                # If running locally, read the CSV file from the local path
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current Listed Properties.csv'
+                display_csv_data(file_path)
 
 
 if __name__ == "__main__":
