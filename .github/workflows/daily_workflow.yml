@@ -2,7 +2,7 @@ name: Daily File Cleanup
 
 on:
   schedule:
-    - cron: '45 17 * * *'  # 17:45 PM South African time
+    - cron: '55 15 * * *'  # 17:45 PM South African time
 
 jobs:
   cleanup:
