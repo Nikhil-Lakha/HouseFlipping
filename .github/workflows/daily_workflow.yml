@@ -1,0 +1,27 @@
+name: Daily File Cleanup
+
+on:
+  schedule:
+    - cron: '45 17 * * *'  # 17:45 PM South African time
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Delete files
+        run: |
+          rm -f image_links.csv
+          rm -f listings.csv
+          rm -f listings_scrapy.csv
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Automated daily file cleanup"
+          git push
