@@ -5,14 +5,28 @@ import os
 class ListingsSpider(scrapy.Spider):
     name = 'listings'
     start_urls = [
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/bedfordview/41?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/fourways-sunninghill-and-lonehill/27?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/johannesburg-south/26?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/north-riding-to-lanseria/1928?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/northcliff/36?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/randburg-and-ferndale/35?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/rosebank-and-parktown/38?tp=2000000&pt=5,2,10&sorttype=1',
-        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/sandton-and-bryanston-north/34?tp=2000000&pt=5,2,10&sorttype=1'
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/alberton/927?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/benoni/46?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/boksburg/44?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/brakpan/47?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/edenvale/45?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/germiston/811?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/kempton-park/42?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/nigel-and-surrounds/49?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/east-rand/springs/48?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/bedfordview/41?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/fourways-sunninghill-and-lonehill/27?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/johannesburg-south/26?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/north-riding-to-lanseria/1928?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/northcliff/36?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/randburg-and-ferndale/35?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/sandton-and-bryanston-north/34?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/johannesburg/rosebank-and-parktown/38?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/midrand/24?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/west-rand/far-west-merafong/842?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/west-rand/krugersdorp/840?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/west-rand/randfontein/841?pt=5%2C2%2C10',
+        'https://www.privateproperty.co.za/for-sale/gauteng/west-rand/roodepoort/37?pt=5%2C2%2C10',
     ]
 
     def parse(self, response):

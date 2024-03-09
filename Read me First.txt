@@ -7,6 +7,7 @@ Delete Listings.csv and listings_scrapy.csv and image_links.csv
 
 Step 2
 Run listings_spider.py
+python "listings_spider.py"
 
 Step 3
 Run Feature Engineer File
