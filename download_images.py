@@ -5,11 +5,11 @@ import os
 from bs4 import BeautifulSoup
 
 # Load sold properties data from CSV
-file_path = "C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All Sold Properties.csv"
+file_path = "https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold%20Properties/All%20Sold%20Properties.csv"
 sold_properties = pd.read_csv(file_path)
 
 # Define the directory path for sold house images
-directory_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold House Images'
+directory_path = 'https://github.com/Nikhil-Lakha/HouseFlipping/tree/main/Sold%20House%20Images'
 
 # List all folders in the directory
 folder_list = [folder for folder in os.listdir(directory_path) if os.path.isdir(os.path.join(directory_path, folder))]
