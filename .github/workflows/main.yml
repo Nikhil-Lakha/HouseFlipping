@@ -1,0 +1,46 @@
+name: Daily Automation
+
+on:
+  schedule:
+    - cron: '40 14 * * *'  # This runs the workflow daily at 14:40 PM South African time
+
+jobs:
+  run_scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Delete files
+        run: |
+          rm -f image_links.csv
+          rm -f listings.csv
+          rm -f listings_scrapy.csv
+        # Notify on completion
+        if: ${{ success() }}
+        run: echo "Deletion of files successful" | mail -s "File Deletion Success" lakhanikhil@gmail.com
+
+      - name: Run listings_spider.py
+        run: python listings_spider.py
+        # Notify on completion
+        if: ${{ success() }}
+        run: echo "listings_spider.py execution successful" | mail -s "listings_spider.py Success" lakhanikhil@gmail.com
+
+      - name: Run Feature Engineering notebook
+        run: jupyter nbconvert --execute --to notebook --inplace Feature\ Engineering.ipynb
+        # Notify on completion
+        if: ${{ success() }}
+        run: echo "Feature Engineering notebook execution successful" | mail -s "Feature Engineering Success" lakhanikhil@gmail.com
+
+      - name: Run download_images.py
+        run: python download_images.py
+        # Notify on completion
+        if: ${{ success() }}
+        run: echo "download_images.py execution successful" | mail -s "download_images.py Success" lakhanikhil@gmail.com
+
+      - name: Run Download Images notebook
+        run: jupyter nbconvert --execute --to notebook --inplace Download\ Images.ipynb
+        # Notify on completion
+        if: ${{ success() }}
+        run: echo "Download Images notebook execution successful" | mail -s "Download Images Success" lakhanikhil@gmail.com
