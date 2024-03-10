@@ -2,6 +2,19 @@ import scrapy
 import pandas as pd
 import os
 
+def delete_files():
+    files_to_delete = ['listing.csv', 'listings_scrapy.csv', 'image_links.csv']
+
+    for file_name in files_to_delete:
+        if os.path.exists(file_name):
+            os.remove(file_name)
+            print(f"{file_name} has been deleted.")
+        else:
+            print(f"{file_name} does not exist.")
+
+# Call the function to delete the files
+delete_files()
+
 class ListingsSpider(scrapy.Spider):
     name = 'listings'
     start_urls = [
