@@ -2,11 +2,11 @@ name: Scheduled Execution
 
 on:
   schedule:
-    - cron: '07 14 * * *'  # This represents 4:07 PM South African time (UTC+2)
+    - cron: '40 14 * * *'  # This represents 4:40 PM South African time (UTC+2)
 
 jobs:
   execute_files:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - name: Checkout Repository
@@ -15,11 +15,17 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12.2'  # Choose your Python version
+        python-version: '3.x'  # Choose your Python version
+        
+    - name: Debugging Information
+      run: |
+        type requirements.txt  # Print the contents of requirements.txt
+        python --version  # Print Python version
+        pip list  # List installed packages
         
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt  # If you have any requirements
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
         pip install scrapy  # Install scrapy package
         
     - name: Execute listings_spider.py
