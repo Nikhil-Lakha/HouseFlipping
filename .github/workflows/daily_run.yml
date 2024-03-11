@@ -2,7 +2,7 @@ name: Scheduled Property Execution
 
 on:
   schedule:
-    - cron: '40 14 * * *'  # This represents 4:40 PM South African time (UTC+2)
+    - cron: '40 16 * * *'  # This represents 6:40 PM South African time (UTC+2)
 
 jobs:
   execute_files:
