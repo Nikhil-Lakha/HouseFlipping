@@ -1,4 +1,4 @@
-name: Scheduled Execution
+name: Scheduled Property Execution
 
 on:
   schedule:
@@ -26,7 +26,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt  # Install dependencies from requirements.txt
-        conda install -c conda-forge scrapy  # Install scrapy package
         
     - name: Execute listings_spider.py
       run: python listings_spider.py
