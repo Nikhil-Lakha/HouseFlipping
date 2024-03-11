@@ -5,4 +5,4 @@ numpy>=1.21.2
 matplotlib>=3.8.3
 reportlab>=4.1.0
 pygwalker>=0.4.7
-Scrapy>=2.11.1
+scrapy>=2.11.1
