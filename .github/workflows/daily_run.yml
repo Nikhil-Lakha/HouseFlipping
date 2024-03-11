@@ -16,6 +16,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.12.2'  # Choose your Python version
+
+    - name: Clear pip cache
+      run: pip cache purge
         
     - name: Debugging Information
       run: |
