@@ -32,10 +32,10 @@ jobs:
       run: python listings_spider.py
       
     - name: Execute Feature Engineering Notebook
-      run: jupyter nbconvert --execute --to notebook --inplace Feature\ Engineering.ipynb
+      run: jupyter nbconvert --execute --to notebook --inplace Feature-Engineering-github.ipynb
       
-    - name: Execute download_images.py
-      run: python download_images.py
+    - name: Execute image-link-creation.py
+      run: python image-link-creation-github.py
       
     - name: Execute Download Images Notebook
-      run: jupyter nbconvert --execute --to notebook --inplace Download\ Images.ipynb
+      run: jupyter nbconvert --execute --to notebook --inplace download-images-github.ipynb
