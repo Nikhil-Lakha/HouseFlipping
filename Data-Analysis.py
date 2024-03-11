@@ -34,13 +34,13 @@ def main():
 
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'houseflipping' in current_directory.lower():
+            if 'github' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed-Properties/Current-Listed-Properties.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
-                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current-Listed-Properties.csv'
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Listed-Properties/Current-Listed-Properties.csv'
                 df = pd.read_csv(file_path)
 
             return df
@@ -149,13 +149,13 @@ def main():
 
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'houseflipping' in current_directory.lower():
+            if 'github' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold-Properties/All-Sold-Properties.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
-                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All-Sold-Properties.csv'
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Sold-Properties/All-Sold-Properties.csv'
                 df = pd.read_csv(file_path)
 
             return df
@@ -243,7 +243,7 @@ def main():
             content.append(main_title)
 
             # Add first image under the main title
-            images_folder = f"C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold-House-Images/{listing_number}"
+            images_folder = f"C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Sold-House-Images/{listing_number}"
             if os.path.exists(images_folder):
                 image_files = sorted(glob.glob(os.path.join(images_folder, '*.jpg')))  # Assuming images are JPG format
                 if image_files:
@@ -358,13 +358,13 @@ def main():
         
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'houseflipping' in current_directory.lower():
+            if 'github' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Property-Market-30-days.csv'
                 df = pd.read_csv(file_url)
             else:
                 # If running locally, read the CSV file from the local path
-                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Property-Market-30-days.csv'
+                file_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Property-Market-30-days.csv'
                 df = pd.read_csv(file_path)
 
             return df
@@ -435,18 +435,18 @@ def main():
         
         # Determine CSV file paths based on the current working directory
         current_directory = os.getcwd()
-        if 'houseflipping' in current_directory.lower():
+        if 'github' in current_directory.lower():
             # If running in the 'houseflipping' directory, use GitHub URLs for CSV files
             sold_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold-Properties/All-Sold-Properties.csv'
             listed_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed-Properties/Current-Listed-Properties.csv'
         else:
             # If running locally, use local file paths for CSV files
-            sold_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Sold Properties/All-Sold-Properties.csv'
-            listed_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/Local/Listed Properties/Current-Listed-Properties.csv'
+            sold_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Sold-Properties/All-Sold-Properties.csv'
+            listed_properties_path = 'C:/Users/lakha/OneDrive/Documents/House Flipping - Real Life/HouseFlipping/Listed-Properties/Current-Listed-Properties.csv'
         
         # Button for Sold Homes
         if st.button("Sold Homes"):
-            if 'houseflipping' in current_directory.lower():
+            if 'github' in current_directory.lower():
                 df = load_csv_data(sold_properties_url)
             else:
                 df = load_csv_data(sold_properties_path)
@@ -455,7 +455,7 @@ def main():
         
         # Button for Currently Listed
         if st.button("Currently Listed"):
-            if 'houseflipping' in current_directory.lower():
+            if 'github' in current_directory.lower():
                 df = load_csv_data(listed_properties_url)
             else:
                 df = load_csv_data(listed_properties_path)
