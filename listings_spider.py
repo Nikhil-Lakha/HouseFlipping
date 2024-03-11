@@ -1,3 +1,4 @@
+!pip install Scrapy
 import scrapy
 import pandas as pd
 import os
