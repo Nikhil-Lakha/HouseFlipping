@@ -34,7 +34,7 @@ def main():
 
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'github' in current_directory.lower():
+            if 'nikhil-lakha/houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed-Properties/Current-Listed-Properties.csv'
                 df = pd.read_csv(file_url)
@@ -149,7 +149,7 @@ def main():
 
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'github' in current_directory.lower():
+            if 'nikhil-lakha/houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold-Properties/All-Sold-Properties.csv'
                 df = pd.read_csv(file_url)
@@ -358,7 +358,7 @@ def main():
         
         def read_csv_file():
             current_directory = os.getcwd()
-            if 'github' in current_directory.lower():
+            if 'nikhil-lakha/houseflipping' in current_directory.lower():
                 # If running in the 'houseflipping' directory, read the CSV file from the GitHub URL
                 file_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Property-Market-30-days.csv'
                 df = pd.read_csv(file_url)
@@ -435,7 +435,7 @@ def main():
         
         # Determine CSV file paths based on the current working directory
         current_directory = os.getcwd()
-        if 'github' in current_directory.lower():
+        if 'nikhil-lakha/houseflipping' in current_directory.lower():
             # If running in the 'houseflipping' directory, use GitHub URLs for CSV files
             sold_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Sold-Properties/All-Sold-Properties.csv'
             listed_properties_url = 'https://raw.githubusercontent.com/Nikhil-Lakha/HouseFlipping/main/Listed-Properties/Current-Listed-Properties.csv'
@@ -446,7 +446,7 @@ def main():
         
         # Button for Sold Homes
         if st.button("Sold Homes"):
-            if 'github' in current_directory.lower():
+            if 'nikhil-lakha/houseflipping' in current_directory.lower():
                 df = load_csv_data(sold_properties_url)
             else:
                 df = load_csv_data(sold_properties_path)
@@ -455,7 +455,7 @@ def main():
         
         # Button for Currently Listed
         if st.button("Currently Listed"):
-            if 'github' in current_directory.lower():
+            if 'nikhil-lakha/houseflipping' in current_directory.lower():
                 df = load_csv_data(listed_properties_url)
             else:
                 df = load_csv_data(listed_properties_path)
