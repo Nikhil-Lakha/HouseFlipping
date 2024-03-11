@@ -90,7 +90,7 @@ def main():
 
         with col1:
             # Add a price slider for filtering
-            price_range = st.slider("Price Range", min_value=0.0, max_value=10000000.0, value=0.0, 10000000.0)
+            price_range = st.slider("Price Range", min_value=0.0, max_value=10000000.0, value=0.0)
 
         with col2:
             # Determine the maximum and minimum values for the 'Price per sqm' column
