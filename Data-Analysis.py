@@ -419,6 +419,8 @@ def main():
             st.write(df)
 
     with tab4:
+
+        @st.cache
         # Add Title
         st.title("Ad Hoc reporting")
         
