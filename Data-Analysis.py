@@ -31,7 +31,8 @@ def main():
     tab1, tab2, tab3, tab4 = st.tabs(["Listed Homes", "Sold Homes", "Marketing Research", "Ad Hoc"])
 
     with tab1:
-
+        
+        @st.cache
         def read_csv_file():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
