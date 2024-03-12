@@ -147,7 +147,8 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
    
     with tab2:
-
+        
+        @st.cache
         def read_csv_file():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
@@ -357,6 +358,7 @@ def main():
 
     with tab3:
         
+        @st.cache
         def read_csv_file():
             current_directory = os.getcwd()
             if 'houseflipping' in current_directory.lower():
