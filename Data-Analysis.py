@@ -420,15 +420,15 @@ def main():
 
     with tab4:
 
-        @st.cache
         # Add Title
         st.title("Ad Hoc reporting")
         
+        @st.cache
         # Define function to read CSV and display HTML
         def display_csv_data(df):
             pyg_html = pyg.to_html(df)
             components.html(pyg_html, height=1000, scrolling=True)
-        
+
         # Function to load CSV data
         def load_csv_data(file_path):
             try:
